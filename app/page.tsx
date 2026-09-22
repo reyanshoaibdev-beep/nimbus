@@ -9,8 +9,6 @@ import { AdSlot } from '@/components/ad-slot'
 import { ShareModal } from '@/components/share-modal'
 import { useRelease } from '@/hooks/use-release'
 
-const TEST_ROLL = '111222'
-
 export default function LandingPage() {
   const router = useRouter()
   const { released, remaining, loading } = useRelease()
@@ -104,12 +102,6 @@ export default function LandingPage() {
             >
               {released ? 'اپنا نتیجہ دیکھیں' : 'تصدیق کریں'}
             </button>
-
-            {!released ? (
-              <p className="mt-3 text-center text-xs text-gray-500">
-                آزمائش کے لیے رول نمبر: <span className="urdu-digits font-semibold">{TEST_ROLL}</span>
-              </p>
-            ) : null}
           </div>
         </div>
       </section>

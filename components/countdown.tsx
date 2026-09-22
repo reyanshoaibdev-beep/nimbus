@@ -40,14 +40,14 @@ export function Countdown({
               aria-live="polite"
               aria-label="باقی وقت"
             >
-              <TimeBox value={loading ? '۰۰' : padUrdu(hours)} label="گھنٹے" />
+              <TimeBox value={loading ? '00' : padUrdu(hours)} label="گھنٹے" />
               <span className="pb-6 text-3xl font-bold text-white/70">:</span>
-              <TimeBox value={loading ? '۰۰' : padUrdu(minutes)} label="منٹ" />
+              <TimeBox value={loading ? '00' : padUrdu(minutes)} label="منٹ" />
               <span className="pb-6 text-3xl font-bold text-white/70">:</span>
-              <TimeBox value={loading ? '۰۰' : padUrdu(seconds)} label="سیکنڈ" />
+              <TimeBox value={loading ? '00' : padUrdu(seconds)} label="سیکنڈ" />
             </div>
             <p className="mt-4 text-sm text-white/85">
-              نتیجہ صبح <span className="urdu-digits">۸:۴۵</span> بجے (پاکستان کا وقت) جاری کیا جائے گا
+              نتیجہ صبح <span>8:45</span> بجے (پاکستان کا وقت) جاری کیا جائے گا
             </p>
           </>
         )}

@@ -181,8 +181,7 @@
   line-height: 2.1;
 }
 
-/* Force English/Latin numerals to render as Urdu (Eastern Arabic) numerals
-   where we opt in with this class, matching an authentic board portal look. */
+/* Numerals are rendered in Latin (English) digits across the portal. */
 .urdu-digits {
-  font-feature-settings: 'ss01';
+  font-variant-numeric: normal;
 }

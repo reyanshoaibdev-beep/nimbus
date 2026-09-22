@@ -125,10 +125,6 @@ function SearchForm() {
           >
             {loading ? 'انتظار کریں…' : 'نتیجہ دیکھیں'}
           </button>
-
-          <p className="mt-3 text-center text-xs text-gray-500">
-            آزمائش کے لیے رول نمبر: <span className="urdu-digits font-semibold">111222</span>
-          </p>
         </div>
       </div>
     </section>

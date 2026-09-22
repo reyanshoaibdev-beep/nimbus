@@ -148,9 +148,9 @@ function ResultView() {
               }`}
               aria-hidden={!unlocked}
             >
-              <StatBox label="حاصل کردہ نمبر" value={unlocked ? toUrduDigits(result.obtainedMarks) : '۴۵۶'} />
-              <StatBox label="کل نمبر" value={unlocked ? toUrduDigits(result.totalMarks) : '۶۰۰'} />
-              <StatBox label="فیصد" value={unlocked ? `${toUrduDigits(result.percentage)}٪` : '۸۸٪'} />
+                <StatBox label="حاصل کردہ نمبر" value={unlocked ? toUrduDigits(result.obtainedMarks) : '456'} />
+                <StatBox label="کل نمبر" value={unlocked ? toUrduDigits(result.totalMarks) : '600'} />
+                <StatBox label="فیصد" value={unlocked ? `${toUrduDigits(result.percentage)}٪` : '88٪'} />
               <StatBox label="گریڈ" value={unlocked ? result.grade : 'A'} />
             </dl>
 
