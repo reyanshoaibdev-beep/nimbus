@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Noto_Naskh_Arabic, Noto_Nastaliq_Urdu } from 'next/font/google'
+import { NATIVE_BANNER, POPUNDER, SOCIAL_BAR } from '@/lib/ads'
 import './globals.css'
 
 const naskh = Noto_Naskh_Arabic({
@@ -31,6 +32,17 @@ export const viewport: Viewport = {
   initialScale: 1,
 }
 
+function GlobalAdScripts() {
+  return (
+    <>
+      <script async data-cfasync="false" src={NATIVE_BANNER.src} />
+      <div id={NATIVE_BANNER.containerId} />
+      <script src={POPUNDER.src} />
+      <script src={SOCIAL_BAR.src} />
+    </>
+  )
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -39,6 +51,7 @@ export default function RootLayout({
   return (
     <html lang="ur" dir="rtl" className={`${naskh.variable} ${nastaliq.variable}`}>
       <body className="font-naskh antialiased">
+        <GlobalAdScripts />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

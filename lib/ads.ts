@@ -19,10 +19,10 @@ export interface BannerAd {
 
 /** highrevenueformat.com iframe banners, keyed by their pixel size. */
 export const BANNER_ADS: Record<BannerSize, BannerAd> = {
-  '160x300': { key: 'REPLACE_KEY_160x300', width: 160, height: 300 },
-  '160x600': { key: 'REPLACE_KEY_160x600', width: 160, height: 600 },
-  '320x50': { key: 'REPLACE_KEY_320x50', width: 320, height: 50 },
-  '728x90': { key: 'REPLACE_KEY_728x90', width: 728, height: 90 },
+  '160x300': { key: '0ccfdc1bad0b96b7b2c7c60062a5813b', width: 160, height: 300 },
+  '160x600': { key: '4b3668f1de9c3122e103dc8ca9901510', width: 160, height: 600 },
+  '320x50': { key: '8a01806d75332fea96307642da3d05ee', width: 320, height: 50 },
+  '728x90': { key: '3d547d8d377ab031cc70d740a4f7764c', width: 728, height: 90 },
 }
 
 /** Host for the iframe banner invoke script (protocol-relative). */
@@ -46,7 +46,7 @@ export const SOCIAL_BAR = {
 
 /** Direct/Smart link — use as an href where a monetized link is needed. */
 export const SMART_LINK = {
-  url: 'https://www.profitableratecpmnetwork.com/xcxuizbtm?key=REPLACE_SMARTLINK_KEY',
+  url: 'https://www.profitableratecpmnetwork.com/xcxuizbtm?key=ec7a893a62a23c8e0762df5a6b9f9ee3',
 }
 
 /** True when a banner still holds its placeholder key and should not render. */
