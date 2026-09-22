@@ -7,6 +7,7 @@ import { BoardFooter } from '@/components/board-footer'
 import { Countdown } from '@/components/countdown'
 import { AdSlot } from '@/components/ad-slot'
 import { ShareModal } from '@/components/share-modal'
+import { TermsModal } from '@/components/terms-modal'
 import { useRelease } from '@/hooks/use-release'
 
 export default function LandingPage() {
@@ -17,6 +18,8 @@ export default function LandingPage() {
   const [error, setError] = useState('')
   const [modalOpen, setModalOpen] = useState(false)
   const [prebooked, setPrebooked] = useState(false)
+  const [agreed, setAgreed] = useState(false)
+  const [termsOpen, setTermsOpen] = useState(false)
 
   const handlePrimary = () => {
     setError('')
@@ -24,6 +27,11 @@ export default function LandingPage() {
 
     if (!/^\d{4,10}$/.test(value)) {
       setError('درج کیا گیا رول نمبر درست نہیں ہے۔')
+      return
+    }
+
+    if (!agreed) {
+      setError('براہِ کرم آگے بڑھنے کے لیے شرائط و ضوابط سے اتفاق کریں۔')
       return
     }
 
@@ -95,10 +103,39 @@ export default function LandingPage() {
               </p>
             ) : null}
 
+            <p className="mx-auto mt-4 max-w-md text-center text-xs leading-6 text-gray-500">
+              اگر کسی بھی وجہ سے ہمیں بورڈ کی API سے نتیجہ موصول نہ ہو یا تاخیر سے ملے، تو نتیجہ
+              نہ بھیجا جا سکتا ہے اور نہ ہی دکھایا جا سکتا ہے۔
+            </p>
+
+            <label className="mt-4 flex items-start gap-2.5 text-sm leading-6 text-gray-700">
+              <input
+                type="checkbox"
+                checked={agreed}
+                onChange={(e) => {
+                  setAgreed(e.target.checked)
+                  if (error) setError('')
+                }}
+                className="mt-0.5 size-4 shrink-0 accent-board"
+              />
+              <span>
+                میں{' '}
+                <button
+                  type="button"
+                  onClick={() => setTermsOpen(true)}
+                  className="font-semibold text-board underline underline-offset-2 hover:text-board-dark"
+                >
+                  شرائط و ضوابط
+                </button>{' '}
+                سے اتفاق کرتا/کرتی ہوں۔
+              </span>
+            </label>
+
             <button
               type="button"
               onClick={handlePrimary}
-              className="mt-4 w-full rounded-md bg-board px-4 py-3 text-base font-semibold text-white hover:bg-board-dark"
+              disabled={!agreed}
+              className="mt-4 w-full rounded-md bg-board px-4 py-3 text-base font-semibold text-white hover:bg-board-dark disabled:cursor-not-allowed disabled:opacity-50"
             >
               {released ? 'اپنا نتیجہ دیکھیں' : 'تصدیق کریں'}
             </button>
@@ -119,6 +156,8 @@ export default function LandingPage() {
         onClose={() => setModalOpen(false)}
         onComplete={() => setPrebooked(true)}
       />
+
+      <TermsModal open={termsOpen} onClose={() => setTermsOpen(false)} />
     </main>
   )
 }
